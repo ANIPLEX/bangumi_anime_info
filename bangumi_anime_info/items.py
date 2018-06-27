@@ -8,7 +8,14 @@
 import scrapy
 
 
-class BangumiAnimeInfoItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class BangumiAnimeItem(scrapy.Item):
+    #名称
+    title = scrapy.Field()
+    #原名
+    primitive = scrapy.Field()
+    #排名
+    rank = scrapy.Field()
+    #评分
+    grade = scrapy.Field()
+    #图片
+    imgurl = scrapy.Field()
