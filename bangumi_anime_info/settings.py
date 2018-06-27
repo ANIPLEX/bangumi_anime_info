@@ -64,10 +64,16 @@ DEFAULT_REQUEST_HEADERS = {
 #}
 
 # Configure item pipelines
-# See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'bangumi_anime_info.pipelines.BangumiAnimeInfoPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'bangumi_anime_info.pipelines.BangumiAnimeInfoPipeline': 300,
+}
+
+#MongoDB的一些参数
+MONGODB_HOST = 'localhost'
+MONGODB_PORT = 27017
+MONGODB_DBNAME = 'bangumi'
+MONGODB_TABLE = 'listitem'
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

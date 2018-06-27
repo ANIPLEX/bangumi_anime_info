@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
-
+import pymongo
+from scrapy.conf import settings
 
 class BangumiAnimeInfoPipeline(object):
+    def __init__(self):
+        conn = pymongo.MongoClient(settings['MONGODB_HOST'],settings['MONGODB_PORT'])
+        db = conn[settings['MONGODB_DBNAME']]
+        self.connection = db[settings['MONGODB_TABLE']]
     def process_item(self, item, spider):
+        bangumi_info = dict(item)
+        self.connection.insert(bangumi_info)
         return item

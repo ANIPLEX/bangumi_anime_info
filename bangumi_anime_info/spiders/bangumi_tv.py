@@ -27,8 +27,8 @@ class Bangumi_Anime_Spider(scrapy.Spider):
                 item['rank'] = anime.xpath("./div/span/text()").extract()[0]
             except:
                 item['rank'] = '4752名以外'
-                print(item)
-                #yield item
+                #print(item)
+                yield item
         next_url = response.xpath("//div[@class='page_inner']/a[last()-2]/@href").extract()
         if next_url:
             next_url = 'http://bangumi.tv/anime/browser/'+next_url[0]
